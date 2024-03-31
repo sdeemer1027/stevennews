@@ -5,6 +5,12 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PictureLibraryController;
+use App\Http\Controllers\FriendController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
 
 
 /*
@@ -18,15 +24,22 @@ use App\Http\Controllers\ArtistController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+
+Route::get('/', [HomeController::class , 'index'])->name('welcome');
+
+
+Route::get('/aboutsteve', [ArtistController::class, 'aboutsteve'])->name('aboutsteve');
+
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::resource('roles', RoleController::class); //->name('admin.roles.index');
@@ -51,7 +64,33 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/upload-picture', [ProfileController::class, 'showPictureUploadForm'])->name('profile.upload-picture-form');
+    Route::post('/profile/upload-picture', [ProfileController::class, 'uploadPicture'])->name('profile.upload-picture');
+    Route::get('/profile/picture-library', [ProfileController::class, 'showPictureLibrary'])->name('profile.picture-library');
+ //Route::delete('/delete-picture/{id}', [PictureLibraryController::class, 'delete'])->name('delete-picture');
+
+    Route::delete('/delete-picture/{id}', [PictureLibraryController::class, 'delete'])->name('delete-picture');
+
+//    Route::get('/picture-library', [PictureLibraryController::class, 'index'])->name('picture-library.index');
+    Route::post('/picture-library/upload', [PictureLibraryController::class, 'upload'])->name('picture-library.upload');
+//    Route::delete('/picture-library/delete/{id}', [PictureLibraryController::class, 'delete'])->name('picture-library.delete');
+    Route::post('/change-profile-picture', [ProfileController::class, 'changeProfilePicture'])->name('change-profile-picture');
+
     // Add other dashboard-related routes as needed
+
+    Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
+
+    Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendRequest'])->name('send-friend-request');
+    Route::post('/approve-friend-request/{friend}', [FriendController::class, 'approveRequest'])->name('approve-friend-request');
+    Route::get('/cancel-friend-request/{friend}', [FriendController::class, 'cancelRequest'])->name('cancel-friend-request');
+    Route::get('/remove-friend/{friend}', [FriendController::class, 'removeFriend'])->name('remove-friend');
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+
 });
 
 Route::middleware(['auth'])->group(function () {

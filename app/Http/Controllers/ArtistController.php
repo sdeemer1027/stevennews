@@ -26,4 +26,11 @@ class ArtistController extends Controller
         return redirect()->route('artists.index')->with('success', 'Picture uploaded successfully.');
     }
 
+
+     public function aboutsteve(){
+
+$artist = '';
+
+        return view('aboutsteve', compact('artist'));
+     }
 }

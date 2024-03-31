@@ -9,33 +9,29 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
-
-
-
-
-
-
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-<!-- Include Bootstrap CSS -->
+    <!-- Include Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+    integrity="sha384-rREXt8RVAqVi7gW5RkvJw81HstU2R9ZYuP7WNVeBpqInyKT9R2a8meGlkIfCKd1T" crossorigin="anonymous">
 <style>
 
 </style>
 
 </head>
-<body  data-bs-theme="dark">
+<body  data-bs-theme="dark" class="d-flex flex-column h-100">
     <div id="app" >
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm  sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"> <img src="srdlogo.png" height="50px;">
+                <a class="navbar-brand" href="{{ url('/') }}"> <img src="/srdlogo.png" height="50px;">
                   <span style="color:#e97855;">S</span>teven.<span style="color:#e97855;">News</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -53,7 +49,7 @@
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ __('About') }}</a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">About Steve</a>
+                                    <a class="dropdown-item" href="{{route('aboutsteve')}}">About Steve</a>
                                     <a class="dropdown-item" href="#">About Site</a>
                                     <a class="dropdown-item" href="#">About Evets.Pet</a>
                                 </div>
@@ -86,20 +82,12 @@
                                 </li>
                             @endif
                         @else
-{{-- 
-<a href="{{ route('admin.roles.index') }}">Roles</a>
-        <a href="{{ route('admin.permissions.index') }}">Permissions</a>
-        --}}
-
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-<a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
-
+                                    <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -124,9 +112,31 @@
         <main class="py-4">
             @yield('content')
         </main>
+  <BR><BR>
+
+<footer class="footer fixed-bottom mt-auto py-3 bg-dark">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-md-6 d-flex align-items-center">
+    <p class="text-muted mb-0">© 2024 <span style="color:#e97855;">S</span>teven.<span style="color:#e97855;">News</span></p>
+</div>
+      <div class="col-md-6 text-md-end">
+        <ul class="nav justify-content-end">
+         <li class="nav-item"><a href="https://www.facebook.com/drsteve2020" class="nav-link px-2 text-muted" target="_blank"><i class="bi bi-facebook"></i></a></li>
+            <li class="nav-item"><a href="https://www.instagram.com/sd1964.with/" class="nav-link px-2 text-muted" target="_blank"><i class="bi bi-instagram"></i></a></li>
+            <li class="nav-item"><a href="https://www.linkedin.com/in/steven-deemer/" class="nav-link px-2 text-muted" target="_blank"><i class="bi bi-linkedin"></i></a></li>
+      
+        </ul>
+      </div>
     </div>
+  </div>
+</footer>
+
+
+
+    </div>
+
     <!-- Include Bootstrap JS (optional) -->
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
 </body>
 </html>

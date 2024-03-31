@@ -1,0 +1,7 @@
+
+/* Import all styles */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+/* Alternatively, import only the necessary icons */
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+$abc = ["data" => "some friggen content"];
+$cntusers= User::count();
+$usersWithRoles = User::with('roles')->get();
+
+//return $usersWithRoles;
+        return view('welcome', compact('abc','cntusers','usersWithRoles'));
     }
 }

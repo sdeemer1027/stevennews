@@ -12,10 +12,10 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="{{ App\Models\User::USERNAME_FIELD }}" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <label for="{{ App\Models\User::USERNAME_FIELD }}" class="col-md-4 col-form-label text-md-end">{{ __('Email') }} </label>
 
                         <div class="col-md-6">
-                           <input id="{{ App\Models\User::USERNAME_FIELD }}" type="text" class="form-control @error(App\Models\User::USERNAME_FIELD) is-invalid @enderror" name="{{ App\Models\User::USERNAME_FIELD }}" value="{{ old(App\Models\User::USERNAME_FIELD) }}" required autocomplete="{{ App\Models\User::USERNAME_FIELD }}" autofocus>
+                           <input id="{{ App\Models\User::USERNAME_FIELD }}" type="text" class="form-control @error(App\Models\User::USERNAME_FIELD) is-invalid @enderror" name="email" value="{{ old(App\Models\User::USERNAME_FIELD) }}" required autocomplete="{{ App\Models\User::USERNAME_FIELD }}" autofocus>
 
                             @error(App\Models\User::USERNAME_FIELD)
                                 <span class="invalid-feedback" role="alert">

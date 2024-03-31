@@ -30,6 +30,14 @@ return new class extends Migration
             $table->string('zip')->nullable();
             $table->decimal('lat', 10, 7)->nullable();
             $table->decimal('lng', 10, 7)->nullable();
+
+        //    $table->string('birthdate', 10)->nullable();
+        //    $table->string('phone', 14)->nullable();
+        $table->date('birth_date')->nullable();
+        $table->string('phone_number')->nullable();
+
+
+
             $table->timestamps();
         });
     }
