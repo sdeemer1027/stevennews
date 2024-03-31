@@ -47,7 +47,7 @@
            <p>You have a pending friend request from this user.</p>   
  
         @else           
-        dd {{Auth::user()->hasPendingFriendRequestFrom($user)}}
+        {{Auth::user()->hasPendingFriendRequestFrom($user)}}
 
             <form action="{{ route('send-friend-request', ['friend' => $user]) }}" method="post">
                 @csrf
