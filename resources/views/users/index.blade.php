@@ -25,7 +25,7 @@
           {{ $user->name }}</th>
       <td>
 </td>
-      <td>{{ $user->roles->pluck('name')->implode(', ') }} {{ $user->id }}
+      <td>{{ $user->roles->pluck('name')->implode(', ') }} 
 @if ($user->roles->contains('name', 'testuser'))
 <br>{{ $user->email }}
 @endif
