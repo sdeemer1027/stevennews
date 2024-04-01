@@ -34,6 +34,9 @@ Route::get('/', [HomeController::class , 'index'])->name('welcome');
 
 Route::get('/aboutsteve', [ArtistController::class, 'aboutsteve'])->name('aboutsteve');
 
+Route::get('/articles', [ArticleController::class, 'indexGuest'])->name('articles');
+Route::get('/articles/category/{category}', [ArticleController::class, 'indexGuestcategory'])->name('articlescategory');
+
 
 
 

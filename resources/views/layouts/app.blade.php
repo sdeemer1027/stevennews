@@ -15,13 +15,9 @@
     <!-- Include Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-    integrity="sha384-rREXt8RVAqVi7gW5RkvJw81HstU2R9ZYuP7WNVeBpqInyKT9R2a8meGlkIfCKd1T" crossorigin="anonymous">
 <style>
 
 </style>
@@ -65,6 +61,7 @@
 
 
 
+                        <a class="nav-link" href="{{ route('articles') }}">{{ __('Articles') }}</a>
 
                         <a class="nav-link" href="#">{{ __('Contact') }}</a>
                         
@@ -139,7 +136,5 @@
 
     </div>
 
-    <!-- Include Bootstrap JS (optional) -->
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

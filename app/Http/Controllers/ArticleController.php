@@ -15,6 +15,21 @@ class ArticleController extends Controller
     return view('admin.articles.index', compact('articles'));
 }
 
+  public function indexGuest()
+{
+    $articles = Article::all();
+     $categories = Category::all();
+    return view('articles.index', compact('articles','categories'));
+}
+
+  public function indexGuestcategory($category)
+{
+    $articles = Article::where('category','=',$category)->get();
+
+     $categories = Category::all();
+    return view('articles.articlescategory', compact('articles','categories'));
+}
+
 public function create()
 {
  $categories = Category::all();
