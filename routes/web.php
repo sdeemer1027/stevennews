@@ -10,9 +10,9 @@ use App\Http\Controllers\PictureLibraryController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-
-
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +55,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+
+    Route::get('/admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
+    Route::get('/admin/articles/create', [ArticleController::class, 'create'])->name('admin.articles.create');
+    Route::post('/admin/articles', [ArticleController::class, 'store'])->name('admin.articles.store');
+    Route::get('/admin/articles/{article}', [ArticleController::class, 'show'])->name('admin.articles.show');
+    Route::get('/admin/articles/{article}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
+    Route::put('/admin/articles/{article}', [ArticleController::class, 'update'])->name('admin.articles.update');
+    Route::delete('/admin/articles/{article}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
+
+Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
+Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
+ Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
+
+
 //    Route::resource('roles', RoleController::class);
 //    Route::resource('permissions', PermissionController::class);
 
