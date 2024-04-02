@@ -30,6 +30,15 @@ class ArticleController extends Controller
     return view('articles.articlescategory', compact('articles','categories'));
 }
 
+public function showGuest(Article $article)
+{
+    $categories = Category::all();
+    
+    return view('articles.show', compact('article','categories'));
+}
+
+
+
 public function create()
 {
  $categories = Category::all();

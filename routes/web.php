@@ -36,7 +36,7 @@ Route::get('/aboutsteve', [ArtistController::class, 'aboutsteve'])->name('abouts
 
 Route::get('/articles', [ArticleController::class, 'indexGuest'])->name('articles');
 Route::get('/articles/category/{category}', [ArticleController::class, 'indexGuestcategory'])->name('articlescategory');
-
+  Route::get('/articles/{article}', [ArticleController::class, 'showGuest'])->name('articles.show');
 
 
 
