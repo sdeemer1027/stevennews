@@ -13,6 +13,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserprofileController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\CertificationController;
+use App\Http\Controllers\SkillController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -107,6 +115,47 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/remove-friend/{friend}', [FriendController::class, 'removeFriend'])->name('remove-friend');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+
+// For the Resume
+Route::get('/userprofiles', [UserprofileController::class, 'index'])->name('userprofiles.index');
+Route::get('/userprofiles/create', [UserprofileController::class, 'create'])->name('userprofiles.create');
+Route::post('/userprofiles', [UserprofileController::class, 'store'])->name('userprofiles.store');
+Route::get('/userprofiles/{userprofile}', [UserprofileController::class, 'show'])->name('userprofiles.show');
+Route::get('/userprofiles/{userprofile}/edit', [UserprofileController::class, 'edit'])->name('userprofiles.edit');
+Route::put('/userprofiles/{userprofile}', [UserprofileController::class, 'update'])->name('userprofiles.update');
+Route::delete('/userprofiles/{userprofile}', [UserprofileController::class, 'destroy'])->name('userprofiles.destroy');
+Route::delete('/userprofiles/{userprofile}/softdelete', [UserprofileController::class, 'softDelete'])->name('userprofiles.softdelete');
+
+Route::get('/userprofiles/{userprofile_id}/educations/create', [EducationController::class, 'create'])->name('userprofiles.educations.create');
+
+Route::post('/userprofiles/educations', [EducationController::class, 'store'])->name('userprofiles.educations.store');
+Route::get('/userprofiles/educations/{education}/edit', [EducationController::class, 'edit'])->name('userprofiles.educations.edit');
+Route::put('/userprofiles/educations/{education}', [EducationController::class, 'update'])->name('userprofiles.educations.update');
+Route::delete('/userprofiles/educations/{education}', [EducationController::class, 'destroy'])->name('userprofiles.educations.destroy');
+Route::delete('/userprofiles/educations/{education}/softdelete', [EducationController::class, 'softDelete'])->name('userprofiles.educations.softdelete');
+
+
+Route::get('/userprofiles/{userprofile_id}/experience/create', [ExperienceController::class, 'create'])->name('userprofiles.experience.create');
+Route::post('/userprofiles/experience', [ExperienceController::class, 'store'])->name('userprofiles.experience.store');
+Route::get('/userprofiles/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('userprofiles.experience.edit');
+Route::put('/userprofiles/experience/{experience}', [ExperienceController::class, 'update'])->name('userprofiles.experience.update');
+Route::delete('/userprofiles/experience/{experience}', [ExperienceController::class, 'destroy'])->name('userprofiles.experience.destroy');
+
+
+
+Route::get('/userprofiles/{userprofile_id}/certification/create', [CertificationController::class, 'create'])->name('userprofiles.certification.create');
+Route::post('/userprofiles/certification', [CertificationController::class, 'store'])->name('userprofiles.certification.store');
+Route::get('/userprofiles/certification/{certification}/edit', [CertificationController::class, 'edit'])->name('userprofiles.certification.edit');
+Route::put('/userprofiles/certification/{certification}', [CertificationController::class, 'update'])->name('userprofiles.certification.update');
+Route::delete('/userprofiles/certification/{certification}', [CertificationController::class, 'destroy'])->name('userprofiles.certification.destroy');
+
+
+Route::get('/userprofiles/{userprofile_id}/skill/create', [SkillController::class, 'create'])->name('userprofiles.skill.create');
+Route::post('/userprofiles/skill', [SkillController::class, 'store'])->name('userprofiles.skill.store');
+Route::get('/userprofiles/skill/{skill}/edit', [SkillController::class, 'edit'])->name('userprofiles.skill.edit');
+Route::put('/userprofiles/skill/{skill}', [SkillController::class, 'update'])->name('userprofiles.skill.update');
+Route::delete('/userprofiles/skill/{skill}', [SkillController::class, 'destroy'])->name('userprofiles.skill.destroy');
 
 
 });
