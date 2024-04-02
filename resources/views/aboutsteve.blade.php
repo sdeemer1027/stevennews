@@ -16,7 +16,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Resume</h2>
+          <h2></h2>
           <p>
 
           </p>
@@ -24,58 +24,11 @@
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
+            <h3 class="resume-title"></h3>
             <div class="resume-item pb-0">
-              <h4>Steve Deemer</h4>
-              <p>
-
-Innovative and seasoned Lead Developer & Architect with a proven track record of designing and implementing cutting-edge solutions across diverse platforms. Adept at seamlessly integrating technologies to deliver high-quality applications. Proficient in a wide range of programming languages, frameworks, and databases.
-</p>
-<p>
-Seasoned IT experience with proven expertise in programming, database administration, user relations, vendor management, troubleshooting, website development, data migrations, and IT security.
-</p>
-<p>
-
-Adept at analyzing unique client/company challenges and creating visually-appealing web pages which enrich corporate identity and online presence.
-
-</p>
-<p>
-Excel at interfacing with key stakeholders to propel forward-moving and cost-efficient efforts.
-Able to coordinate cross-functional teams in accomplishing objectives and meeting critical deadlines in a fast-paced, high-growth, and diverse environment
-Exceptional talents in coding; constantly focus on optimizing software/website reliability, stability, extensibility, durability, and adaptability.
-
-</p>
-<p>
-Respected by management and peers for keen sense of innovation, resourcefulness, and the ability to resolve issues and deliver genuine results while sticking to Business Rules that makes the companies successful.
- </p>
-<p>
-Consistently ensure first-rate customer satisfaction through proactive communication and cooperation.
-Well-versed in leveraging regular back-up procedures to protect and defend vital information.
-Strong skills in problem analysis, swiftly responding to user requests and problems, and delivering technical training.
-</p>
-              <ul>
-                <li>Hollywood, FL</li>
-                <li>(954)***-**98</li>
-                <li>dr.steve2764@**.com</li>
-              </ul>
+            
             </div>
 
-
-<h3 class="resume-title">Technical Expertise</h3>
-            <div class="resume-item">
-<h4>Web Development:</h4><ul>
-<li>Laravel, Magento, WordPress, Drupal, etc.</li>
-<li>HTML, CSS, jQuery, AJAX, OOP, PHP, Node.js</li></ul>
-<h4>Frontend Technologies:</h4><ul>
-<li>React.js, Angular, Vue.js</li>
-<li>Thorough understanding of Composer and Blade templating engine</li></ul>
-<h4>Database Management:</h4><ul>
-<li>MySQL, MariaDB, MongoDB, NoSQL, SQL, Oracle</li></ul>
-<h4>Mobile & Application Development:</h4><ul>
-<li>Extensive experience in creating solutions spanning mobile, web, and applications</li>
-<li>Proficient in developing for iOS and Android platforms</li>
-</ul>
-                   </div>
 
 
 
