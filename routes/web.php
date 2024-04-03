@@ -46,7 +46,9 @@ Route::get('/articles', [ArticleController::class, 'indexGuest'])->name('article
 Route::get('/articles/category/{category}', [ArticleController::class, 'indexGuestcategory'])->name('articlescategory');
   Route::get('/articles/{article}', [ArticleController::class, 'showGuest'])->name('articles.show');
 
-
+Route::get('/sitemap.xml', function () {
+    return response()->file(storage_path('app/sitemap.xml'));
+});
 
 Auth::routes();
 
