@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.3",
         "spatie/laravel-permission": "^6.3",
+        "spatie/laravel-sitemap": "*",
         "twbs/bootstrap": "5.3.3"
     },
     "require-dev": {

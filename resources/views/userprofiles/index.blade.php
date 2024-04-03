@@ -74,7 +74,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
-                    <th>Actions</th>
+                    <th style="text-align: right;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,12 +86,12 @@
                         <td>{{ $education->start_date }}</td>
                         <td>{{ $education->end_date }}</td>
                         <td>{{ $education->description }}</td>
-                        <td>                            
-                            <a href="{{ route('userprofiles.educations.edit', $education->id) }}" class="btn btn-warning">Edit</a>
+                        <td style="text-align: right;">                            
+                            <a href="{{ route('userprofiles.educations.edit', $education->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                           <form action="{{ route('userprofiles.educations.destroy', $education->id) }}" method="POST" style="display: inline-block;">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this education?')">Delete</button>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this education?')"><i class="fas fa-trash-alt"></i></button>
 </form>
                         </td>
                     </tr>
@@ -118,7 +118,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
-                    <th>Actions</th>
+                    <th style="text-align: right;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -129,12 +129,12 @@
                         <td>{{ $experience->start_date }}</td>
                         <td>{{ $experience->end_date }}</td>
                         <td>{{ $experience->description }}</td>
-                        <td>                            
-                            <a href="{{ route('userprofiles.experience.edit', $experience->id) }}" class="btn btn-warning">Edit</a>
+                        <td style="text-align: right;">                            
+                            <a href="{{ route('userprofiles.experience.edit', $experience->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                           <form action="{{ route('userprofiles.experience.destroy', $experience->id) }}" method="POST" style="display: inline-block;">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this education?')">Delete</button>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this education?')"><i class="fas fa-trash-alt"></i></button>
 </form>
                         </td>
                     </tr>
@@ -187,7 +187,7 @@
                     <th>start_date</th>
                     <th>end_date</th>
                     <th>description</th>
-                    <th>Actions</th>
+                    <th style="text-align: right;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -198,12 +198,12 @@
                         <td>{{ $certification->issue_date }}</td>
                         <td>{{ $certification->expiration_date }}</td>
                         <td>{{ $certification->description }}</td>
-                        <td>                            
-                            <a href="{{ route('userprofiles.certification.edit', $certification->id) }}" class="btn btn-warning">Edit</a>
+                        <td style="text-align: right;">                            
+                            <a href="{{ route('userprofiles.certification.edit', $certification->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                           <form action="{{ route('userprofiles.certification.destroy', $certification->id) }}" method="POST" style="display: inline-block;">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this certification?')">Delete</button>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this certification?')"><i class="fas fa-trash-alt"></i></button>
 </form>
                         </td>
                     </tr>
@@ -231,7 +231,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Level</th>                    
-                    <th>Actions</th>
+                    <th style="text-align: right;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -240,12 +240,12 @@
                         <td>{{ $skill->name }}</td>
                         <td>{{ $skill->level }}</td>                        
                         
-                        <td>                            
-                            <a href="{{ route('userprofiles.skill.edit', $skill->id) }}" class="btn btn-warning">Edit</a>
+                        <td style="text-align: right;">                            
+                            <a href="{{ route('userprofiles.skill.edit', $skill->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                           <form action="{{ route('userprofiles.skill.destroy', $skill->id) }}" method="POST" style="display: inline-block;">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this skill?')">Delete</button>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this skill?')"><i class="fas fa-trash-alt"></i></button>
 </form>
                         </td>
                     </tr>
