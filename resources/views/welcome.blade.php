@@ -207,6 +207,32 @@
 @endif
     
 
+
+
+    @php
+$numbersToPick = 5;
+$minNumber = 1;
+$maxNumber = 69;
+
+$randomNumbers = [];
+while (count($randomNumbers) < $numbersToPick) {
+    $randomNumber = rand($minNumber, $maxNumber);
+    if (!in_array($randomNumber, $randomNumbers)) {
+        $randomNumbers[] = $randomNumber;
+    }
+}
+
+sort($randomNumbers);
+$finalNumber = rand(1, 25);
+echo "<HR>Randomly picked PowerBall numbers: <br>" ;
+echo '<div style="display: flex; flex-wrap: wrap;">';
+
+foreach ($randomNumbers as $number) {
+    echo '<div style="width: 50px; height: 50px; border-radius: 50%; background-color: white; display: flex; justify-content: center; align-items: center; margin: 5px; font-weight: bold; color: black;">' . $number . '</div>';
+}
+echo ' <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e97855; display: flex; justify-content: center; align-items: center; margin: 5px; font-weight: bold; color: black;">' . $finalNumber . '</div></div>';
+    @endphp
+
   </div>
 </div>
 

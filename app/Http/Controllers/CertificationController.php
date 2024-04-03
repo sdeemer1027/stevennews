@@ -54,7 +54,7 @@ public function edit(Certification $certification)
 public function update(Request $request, Certification $certification)
 {
     $validatedData = $request->validate([
-             'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'issuing_organization' => 'required|string|max:255',        
             'issue_date' => 'required|date',
             'expiration_date' => 'nullable|date|after_or_equal:start_date',
