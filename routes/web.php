@@ -18,6 +18,8 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ServicesController;
+
 
 
 
@@ -32,20 +34,18 @@ use App\Http\Controllers\SkillController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 
 Route::get('/', [HomeController::class , 'index'])->name('welcome');
 
-
 Route::get('/aboutsteve', [ArtistController::class, 'aboutsteve'])->name('aboutsteve');
+Route::get('/Services/laravel', [ServicesController::class, 'laravel'])->name('servicelaravel');
+Route::get('/Services/database', [ServicesController::class, 'database'])->name('servicedatabase');
+Route::get('/Services/php', [ServicesController::class, 'php'])->name('servicephp');
+
 
 Route::get('/articles', [ArticleController::class, 'indexGuest'])->name('articles');
 Route::get('/articles/category/{category}', [ArticleController::class, 'indexGuestcategory'])->name('articlescategory');
 //  Route::get('/articles/{article}', [ArticleController::class, 'showGuest'])->name('articles.show');
-
 Route::get('/article/{article:slug}', [ArticleController::class, 'showGuest'])->name('article.show');
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('articles.showslug');
 
@@ -53,24 +53,20 @@ Route::get('/sitemap.xml', function () {
     return response()->file(storage_path('app/sitemap.xml'));
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', [DashboardController::class, 'index'])->name('home');
-
+// if user is admin 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::resource('roles', RoleController::class); //->name('admin.roles.index');
     Route::resource('permissions', PermissionController::class);
 
-//    Route::get('admin/roles/create', [RoleController::class, 'create'])->name('admin.roles.create');
-
     Route::get('roles/{role}/assign-permission', [RoleController::class, 'assignPermission'])->name('admin.roles.assign-permission');
     Route::post('roles/{role}/assign-permission', [RoleController::class, 'processAssignPermission'])->name('admin.roles.process-assign-permission');
     // Other routes go here...
-});
 
-
-
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
 
     Route::get('/admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
@@ -81,9 +77,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::put('/admin/articles/{article}', [ArticleController::class, 'update'])->name('admin.articles.update');
     Route::delete('/admin/articles/{article}', [ArticleController::class, 'destroy'])->name('admin.articles.destroy');
 
-Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
-Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
- Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
+    Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
+    Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
+    Route::post('/admin/categories', [CategoryController::class, 'store'])->name('admin.categories.store');
 
 
 //    Route::resource('roles', RoleController::class);

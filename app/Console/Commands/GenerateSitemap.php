@@ -21,7 +21,9 @@ class GenerateSitemap extends Command
 
         // Add your homepage URL first
         $sitemap->add(route('welcome'));
-
+$sitemap->add(route('servicelaravel'));
+$sitemap->add(route('servicedatabase'));
+$sitemap->add(route('servicephp'));
         // Fetch dynamic URLs from database and add them to the sitemap
         $articles = Article::all(); // Example: Fetch all posts from 'posts' table
         foreach ($articles as $article) {
