@@ -24,6 +24,15 @@
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="{{ $article->title }}"   class="form-control">
 
+ <label for="title">Keywords:</label>
+        <input type="text" id="keywords" name="keywords"  value="{{ $article->keywords }}"  class="form-control">
+        
+        <BR>
+         <label for="title">Meta Description:</label>
+        <input type="text" id="metadescription" name="metadescription"  value="{{ $article->metadescription }}"  class="form-control">
+        
+
+
           <label for="title">Category:</label>        
         <select id="category" name="category"  class="form-select">
             @foreach($categories as $category)

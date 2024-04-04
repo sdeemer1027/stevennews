@@ -7,6 +7,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+
+    @if(isset($article) && $article->keywords)
+        <meta name="keywords" content="{{ $article->keywords }}">
+    @endif
+
+    @if(isset($article) && $article->metadescription)
+        <meta name="description" content="{{ $article->metadescription }}">
+    @endif
+
+
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->

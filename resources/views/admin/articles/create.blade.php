@@ -25,6 +25,14 @@
         <input type="text" id="title" name="title"  class="form-control">
         
         <BR>
+         <label for="title">Keywords:</label>
+        <input type="text" id="keywords" name="keywords"  class="form-control">
+        
+        <BR>
+         <label for="title">Meta Description:</label>
+        <input type="text" id="metadescription" name="metadescription"  class="form-control">
+        
+        <BR>
         <label for="title">Category:</label>        
         <select id="category" name="category"  class="form-select">
             @foreach($categories as $category)

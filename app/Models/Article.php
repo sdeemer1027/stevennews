@@ -18,6 +18,8 @@ class Article extends Model
         'slug',
         'content',
         'category',
+        'keywords',
+        'metadescription',
     ];
 
     protected $dates = ['deleted_at'];
