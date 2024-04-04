@@ -30,20 +30,11 @@
 
 
         <nav class="sidebar">
-            <!-- Left side navigation 
-                {{-- route('admin.users') }}
-{{ route('admin.roles') }}
-{{ route('admin.permissions') }}
-
-{{ route('admin.categories') --}}
-            -->
+            <!-- Left side navigation -->
               <ul>
-                <li><a href="{{ route('admin.users') }}">Users</a>
-                    <ul>
-                        <li><a href="{{ route('admin.roles') }}">Roles</a></li>
-                        <li><a href="#">Permissions</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ route('admin.users') }}">Users</a> </li>                 
+                <li><a href="{{ route('admin.roles') }}">Roles</a></li>                     
+         <hr>      
                 <li><a href="{{ route('admin.articles.index') }}">Articles</a></li>
                 <li><a href="{{ route('admin.categories.index') }}">Categories</a></li>
             </ul>
