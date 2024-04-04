@@ -68,6 +68,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     // Other routes go here...
 
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+
+    Route::get('/admin/roles', [AdminController::class, 'roles'])->name('admin.roles');
+    Route::post('/add-role/{userId}/{roleId}', [AdminController::class, 'addRole'])->name('addRole');
+    Route::delete('/revoke-role/{userId}/{roleId}', [AdminController::class, 'revokeRole'])->name('revokeRole');
+   // Route::get('/roles/create', [AdminController::class,  'createrole'])->name('createRole');
+    Route::post('/roles', [AdminController::class,  'createrole'])->name('roles.store');
 
     Route::get('/admin/articles', [ArticleController::class, 'index'])->name('admin.articles.index');
     Route::get('/admin/articles/create', [ArticleController::class, 'create'])->name('admin.articles.create');

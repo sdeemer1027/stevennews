@@ -1,7 +1,7 @@
 <style>
         .sidebar {
-/*            width: 200px; */
-            background-color: #f0f0f0;
+/*            width: 200px; 
+            background-color: #f0f0f0;*/
             padding: 20px;
         }
 
@@ -16,7 +16,7 @@
 
         .sidebar ul li a {
             text-decoration: none;
-            color: #333;
+            color: #ffffff;
             display: block;
             padding: 5px 10px;
             border-radius: 5px;
@@ -24,6 +24,7 @@
 
         .sidebar ul li a:hover {
             background-color: #ccc;
+              color: #000000;
         }
     </style>
 
@@ -37,9 +38,9 @@
 {{ route('admin.categories') --}}
             -->
               <ul>
-                <li><a href="#">Users</a>
+                <li><a href="{{ route('admin.users') }}">Users</a>
                     <ul>
-                        <li><a href="#">Roles</a></li>
+                        <li><a href="{{ route('admin.roles') }}">Roles</a></li>
                         <li><a href="#">Permissions</a></li>
                     </ul>
                 </li>
