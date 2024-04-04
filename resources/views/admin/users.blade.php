@@ -19,7 +19,8 @@
 <table class="table table-dark table-hover" id="articlesTable">
     <thead>
         <tr>
-            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col">Email</th>
             <th scope="col" colspan="{{ $countroles->count() }}">roles</th>                                 
         </tr>
     </thead>
