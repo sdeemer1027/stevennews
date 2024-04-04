@@ -32,7 +32,7 @@
       <th scope="col">Title</th>
       <th scope="col">Category</th>
       <th scope="col">Created</th>
-      <th scope="col">Handle</th>
+   
     </tr>
   </thead>
   <tbody>    
@@ -42,13 +42,14 @@
 <a href="{{ route('article.show', $article->slug) }}">{{ $article->title }}</a>
       </td>
       <td>{{ $article->category }}</td>
-      <td>{{ $article->created_at }}</td>
-      <td> 
-      </td>
+      <td>{{ $article->created_at->format('F d, Y') }}</td>
+      
     </tr>
         @endforeach
   </tbody>
                        </table>
+
+                       {{ $articles->links() }}
                 </div>
              </div>
 

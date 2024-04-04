@@ -18,10 +18,38 @@
                        
  <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Category</th>
-      <th scope="col">Created</th>
-      <th scope="col">Handle</th>
+    
+<th  scope="col" data-sort="title" class="{{ request()->get('sort_by') == 'title' ? request()->get('sort_order') : '' }}">    
+    @if(request()->get('sort_by') == 'title' && request()->get('sort_order') == 'asc')
+        <i class="fas fa-chevron-up"></i>
+    @elseif(request()->get('sort_by') == 'title' && request()->get('sort_order') == 'desc')
+        <i class="fas fa-chevron-down"></i>
+    @endif
+    Title
+</th>
+
+<th  scope="col" data-sort="category" class="{{ request()->get('sort_by') == 'category' ? request()->get('sort_order') : '' }}">    
+    @if(request()->get('sort_by') == 'category' && request()->get('sort_order') == 'asc')
+        <i class="fas fa-chevron-up"></i>
+    @elseif(request()->get('sort_by') == 'category' && request()->get('sort_order') == 'desc')
+        <i class="fas fa-chevron-down"></i>
+    @endif
+    Category
+</th>
+
+<th  scope="col" data-sort="created_at" class="{{ request()->get('sort_by') == 'created_at' ? request()->get('sort_order') : '' }}">    
+    @if(request()->get('sort_by') == 'created_at' && request()->get('sort_order') == 'asc')
+        <i class="fas fa-chevron-up"></i>
+    @elseif(request()->get('sort_by') == 'created_at' && request()->get('sort_order') == 'desc')
+        <i class="fas fa-chevron-down"></i>
+        @elseif(request()->get('sort_by') == 'title')
+        @elseif(request()->get('sort_by') == 'category')
+        @else
+           <i class="fas fa-chevron-down"></i>
+    @endif
+    Created
+</th>
+   
     </tr>
   </thead>
   <tbody>    
@@ -32,13 +60,16 @@
 
       </td>
       <td>{{ $article->category }}</td>
-      <td>{{ $article->created_at }}</td>
-      <td> 
-      </td>
+      <td>{{ $article->created_at->format('F d, Y') }}</td>
+   
     </tr>
         @endforeach
   </tbody>
                        </table>
+
+
+{{ $articles->links() }}
+
                 </div>
              </div>
 
@@ -49,4 +80,33 @@
       </div>
     </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('th[data-sort]').on('click', function() {
+
+            const column = $(this).data('sort');
+            let direction = 'asc';
+
+            if ($(this).hasClass('asc')) {
+                direction = 'desc';
+                $(this).removeClass('asc').addClass('desc');
+            } else {
+                $(this).removeClass('desc').addClass('asc');
+            }
+
+            // Remove sorting classes from other headers
+            $('th[data-sort]').not(this).removeClass('asc desc');
+
+            // Construct the sorting URL dynamically
+            const currentUrl = new URL('{{ route('articles') }}');
+            currentUrl.searchParams.set('sort_by', column);
+            currentUrl.searchParams.set('sort_order', direction);
+            
+            // Redirect to the dynamically constructed URL
+            window.location.href = currentUrl.toString();
+        });
+    });
+</script>
 @endsection
