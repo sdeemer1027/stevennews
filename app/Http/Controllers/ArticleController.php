@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Str; // Import the Str class for string manipulation
 
 
 class ArticleController extends Controller
@@ -48,7 +49,17 @@ public function create()
 
 public function store(Request $request)
 {
-    Article::create($request->all());
+
+//dd($request);
+
+ $data = $request->all();
+    $data['slug'] = Str::slug($request->input('title'), '-'); // Replace spaces with hyphens
+
+    Article::create($data);
+
+
+
+  //  Article::create($request->all());
     return redirect()->route('admin.articles.index')->with('success', 'Article created successfully.');
 }
 
@@ -67,7 +78,17 @@ public function edit(Article $article)
 
 public function update(Request $request, Article $article)
 {
-    $article->update($request->all());
+
+
+ $data = $request->all();
+    $data['slug'] = Str::slug($request->input('title'), '-'); // Replace spaces with hyphens
+
+  //  Article::create($data);
+
+
+
+
+    $article->update($data);
     return redirect()->route('admin.articles.index')->with('success', 'Article updated successfully.');
 }
 

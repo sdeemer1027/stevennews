@@ -29,7 +29,7 @@ class GenerateSitemap extends Command
 //dd($article);
 
 
-            $sitemap->add(route('articles.show', $article->id)); // Assuming you have a route for individual posts
+            $sitemap->add(route('articles.showslug', $article->slug)); // Assuming you have a route for individual posts
         }
 
         // Write sitemap to file

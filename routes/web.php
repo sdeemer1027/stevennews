@@ -44,7 +44,10 @@ Route::get('/aboutsteve', [ArtistController::class, 'aboutsteve'])->name('abouts
 
 Route::get('/articles', [ArticleController::class, 'indexGuest'])->name('articles');
 Route::get('/articles/category/{category}', [ArticleController::class, 'indexGuestcategory'])->name('articlescategory');
-  Route::get('/articles/{article}', [ArticleController::class, 'showGuest'])->name('articles.show');
+//  Route::get('/articles/{article}', [ArticleController::class, 'showGuest'])->name('articles.show');
+
+Route::get('/article/{article:slug}', [ArticleController::class, 'showGuest'])->name('article.show');
+Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('articles.showslug');
 
 Route::get('/sitemap.xml', function () {
     return response()->file(storage_path('app/sitemap.xml'));

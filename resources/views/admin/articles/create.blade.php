@@ -23,6 +23,7 @@
     
         <label for="title">Title:</label>
         <input type="text" id="title" name="title"  class="form-control">
+        
         <BR>
         <label for="title">Category:</label>        
         <select id="category" name="category"  class="form-select">
