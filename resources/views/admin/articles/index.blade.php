@@ -10,6 +10,58 @@
 <!-- DataTables JavaScript -->
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
+<style>
+    /* Override DataTables styles */
+    /* Set the background color of the entire table to white */
+    table.dataTable {
+        background-color: #000;
+    }
+
+    /* Set the text color inside the table to white */
+    table.dataTable  td,
+    table.dataTable  th {
+        color: #fff;
+    }
+ 
+ .dataTables_wrapper .dataTables_filter  label {
+    color: #fff; /* Text color (white) */
+}
+/* Override DataTables styles for the "Show" and "entries" labels */
+.dataTables_wrapper .dataTables_length label {
+    color: #fff; /* Text color (white) */
+}
+/* Override DataTables styles for the information text */
+.dataTables_wrapper .dataTables_info {
+    color: #fff; /* Text color (white) */
+}
+
+/* Override DataTables styles for pagination text */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #fff; /* Text color (white) */
+}
+
+/* Override DataTables styles for pagination text inside anchor tags */
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.current) {
+    color: #fff; /* Text color (white) */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current) {
+    color: #fff; /* Text color on hover (white) */
+}
+
+
+
+
+    /* Customize select dropdowns */
+    /* Set the background color of select dropdowns to dark */
+    .dataTables_wrapper .dataTables_length select,
+    .dataTables_wrapper .dataTables_filter select,
+    .dataTables_wrapper .dataTables_info select,
+    .dataTables_wrapper .dataTables_paginate select {
+        background-color: #343a40; /* Dark background color */
+        color: #fff; /* Text color */
+    }
+</style>
     <div id="app">
       <div class="content">
        <div class="row">
@@ -20,10 +72,15 @@
         
 
              <div class="card" style="width:98%">
+
+
+
+
                <div class="card-header" style="background-color: #0056b3; color: #ffffff;">
                   <h1>All Articles <a href="{{ route('admin.articles.create') }}" class="btn btn-warning" style="float: right;">Add New Article</a></h1>  
                 </div>
                 <div class="card-body">
+     
                        <table class="table table-dark table-hover" id="articlesTable">
                        <thead>
                            <tr>

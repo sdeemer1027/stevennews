@@ -19,12 +19,13 @@ class AdminController extends Controller
 
  public function users()
     {
-$countroles = Role::all();
-
- $users = User::with('roles')->get();
+      $countroles = Role::all();
+      $users = User::with('roles')->get(); //->paginate(25); //
 
         return view('admin.users', compact('users','countroles'));
     }
+
+
 
  public function roles()
     {

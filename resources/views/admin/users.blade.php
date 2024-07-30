@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<!-- DataTables JavaScript -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
     <div id="app">
     <div class="row">
     
@@ -11,17 +18,17 @@
  <div class="col-10">
         <div class="content">
             <!-- Content area -->
-            {{ $countroles->count() }}
+            {{-- $countroles->count() --}}
 
 
 
 
-<table class="table table-dark table-hover" id="articlesTable">
+<table class="table table-dark table-hover" id="usersTable">
     <thead>
         <tr>
-            <th scope="col">email</th>
+            <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col" colspan="{{ $countroles->count() }}">roles</th>                                 
+            <th scope="col" colspan="{{ $countroles->count() }}">Roles</th>                                 
         </tr>
     </thead>
     <tbody>   
@@ -48,7 +55,7 @@
                         @if(!$roleExists)
                             <form action="{{ route('addRole', ['userId' => $user->id, 'roleId' => $countrole->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">{{ $countrole->name }}</button>
+                              {{ $countrole->name }}  <button type="submit" class="btn btn-primary"><i class="fas fa-plus-square"></i></button>
                             </form>
                         @else
                             <form action="{{ route('revokeRole', ['userId' => $user->id, 'roleId' => $userRole->id]) }}" method="POST">
@@ -65,67 +72,8 @@
 </table>
 
 
+{{--$users->links--}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table class="table table-dark table-hover" id="articlesTable">
-    <thead>
-        <tr>
-            <th scope="col">name</th>
-            <th scope="col" colspan="{{ $countroles->count() }}">roles</th>                                 
-        </tr>
-    </thead>
-    <tbody>   
-        @foreach($users as $user)
-            <tr>
-                <td>{{ $user->name }}</td>
-                @foreach($countroles as $countrole)
-                    <td>
-                        @php
-                            $roleExists = false;
-                        @endphp
-                        @foreach($user->roles as $role)
-                            @if($role->name == $countrole->name)
-                                @php
-                                    $roleExists = true;
-                                @endphp
-                                <span style="color: red">{{ $role->name }}</span>
-                            @endif
-                        @endforeach
-                        @if(!$roleExists)
-                            <form action="{{ route('addRole', ['userId' => $user->id, 'roleId' => $countrole->id]) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-primary">{{ $countrole->name }}</button>
-                            </form>
-                        @endif
-                    </td>
-                @endforeach
-            </tr>
-        @endforeach
-    </tbody>
-</table>
 
            {{--$users--}}
         </div>
@@ -135,4 +83,11 @@
 
     </div>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        $('#usersTable').DataTable();
+    });
+</script>
+
 @endsection

@@ -26,8 +26,8 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-            <strong>You are Looking at Steven.news</strong> This site is deigned and a concept based on Steven and his news stories as well as life news articles.
-            Steven, or as we will call him from this point forward Steve, Was born in New Jersey. A small town named Hackettstown. 
+            <strong>You are Looking at Steven.news</strong> This site is a concept based on Steven and his news stories as well as life news articles.
+            Steven, as we will call him from this point forward as Steve, Was born in New Jersey. A small town named Hackettstown.
 
             </div>
           </div>
@@ -76,7 +76,7 @@
           </h3>
           <div id="collapseMom" class="accordion-collapse collapse" aria-labelledby="headingMom" data-bs-parent="#accordionFamily">
             <div class="accordion-body">
-              Mom Passed away October 2006 she was 65 years old 
+              Mom Passed away October 2006 she was 65 years old
             </div>
           </div>
         </div>
@@ -184,28 +184,28 @@
       @if(isset($cntusers))
       <h6 class="card-subtitle mb-2 text-muted">Users: {{$cntusers}}</h6>
       @endif
-    <!-- <p class="card-text">Laravel </p> 
+    <!-- <p class="card-text">Laravel </p>
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a> -->
- 
-     
+
+
  @if (auth()->check())
-@if (auth()->user()->hasRole('admin'))  
+@if (auth()->user()->hasRole('admin'))
     @foreach($usersWithRoles as $uinfo)
         @if ($uinfo->roles->contains('name', 'admin'))
             {{$uinfo->username}} [ {{ $uinfo->roles->pluck('name')->implode(', ') }} ] <br>
         @elseif ($uinfo->roles->contains('name', 'user'))
             {{$uinfo->username}} [ {{ $uinfo->roles->pluck('name')->implode(', ') }} ] <br>
         @endif
-    @endforeach    
+    @endforeach
 @elseif (auth()->user()->hasRole('user'))
     User Data
 @else
     Other Data
-@endif    
-   
 @endif
-    
+
+@endif
+
 
 
 
