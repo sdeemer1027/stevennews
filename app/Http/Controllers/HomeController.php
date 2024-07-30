@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
 
-$abc = ["data" => "some friggen content"];
+$abc = ["data" => "some content"];
 $cntusers= User::count();
 $usersWithRoles = User::with('roles')->get();
 
